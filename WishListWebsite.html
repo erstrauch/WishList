@@ -1,0 +1,231 @@
+<html background-color=#F5EACD;>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+		<script type="text/javascript" src="tabletop1.3.4.js"></script>
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script> $(document).bind('mobileinit',function(){
+		 	$.mobile.changePage.defaults.changeHash = false;
+		 		$.mobile.hashListeningEnabled = false;
+		 	$.mobile.pushStateEnabled = false;
+		});</script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src= "JSON Wishlist.js"></script>
+<style> 
+
+h3 {
+	text-align: center;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif; 
+	background-color: #F5EACD;
+	color: #E7512D;
+}
+
+#name {
+	font-size:45pt;
+	color: #9BCE7D; 
+	text-decoration:none;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+#info {
+	font-size: 25pt;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	color: #063E53;
+}
+
+h8 {
+	text-align: center;
+	font-size: 80pt;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif; 
+	background-color: #F5EACD;
+	color: #E7512D;
+	/*Style for heading*/
+}
+div {
+	font-size: 40pt;
+	text-align: center;
+	background-color: #F5EACD;
+	/*Style for background*/
+}
+body {
+	background-color:#b0c4de;
+	/*IDK*/
+}
+
+p {
+	font-size: 40pt;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	color: #063E53;
+	/*Style for Title tag*/
+}
+
+legend {
+	font-size: 40pt; 
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	color: #063E53;
+	/*Style for Type tag*/
+}
+
+table {
+	border-style: width = 100%
+	word-spacing: 100px;
+	text-align: center;
+	font-size: 10pt;
+	/*Style for Table*/
+}
+
+a:link {
+	text-align: center;
+	font-size:20pt;
+	color: #9BCE7D; 
+	text-decoration:none;
+/*Style for number of shows avaliable*/
+}
+
+p2 {
+	font-size: 20pt;
+	font-family: "Arial Black", Gadget, sans-serif; 
+	color: #DEB887;
+	text-decoration: none;
+/*Style for first page notification text*/
+}
+.value {
+	font-size: 30pt;
+	font-family: "Arial Black", Gadget, sans-serif;
+	color: #9BCE7D; 
+}
+
+td {
+	font-size: 20pt;
+	font-family: "Arial Black", Gadget, sans-serif;
+	color: #DEB887;
+	/*Style for table inserts*/
+}
+
+#btn {
+  -webkit-border-radius: 6;
+  -moz-border-radius: 6;
+  border-radius: 6px;
+  font-family: Arial;
+  color: #191a1a;
+  font-size: 17px;
+  background: #ffffff;
+  padding: 5px 5px 5px 5px;
+  border: solid #F5EACD 2px;
+  text-decoration: none;
+}
+
+#btn:hover {
+  background: #9BCE7D;
+  text-decoration: none;
+}
+
+.APIClass1 {
+	width: 10%; 
+	height: 10%;
+}
+
+</style>
+
+<body>
+	<div data-role="page" id="pageone" style= "background: #F5EACD">
+		<div>
+			<br>
+			<h8> WishList</h8>
+		</div>
+	 	<div data-role="content">  
+	 		<div class = "content"> 
+	 			<span class = 'value'></span> <p2>of your shows are currently available. 
+	 			<a href="#pagetwo" style= "color: #9BCE7D">Click</a> to view your WishList</p2>
+	 		<br> 
+	 	</div>
+</div>
+<p>
+Title: 
+ 	<input id = "API1" type="text" name="WishListSearch" class = "APIClass1">
+		<fieldset data-role="tvmshowtype">
+			<legend style = "text-align:center"> Type: </legend>
+	     	<input type="radio" name="radio-choice" id="radio-choice-1" value="TV Show"/>
+	     	<label for="radio-choice-1" style = "text-align:center"> TV Show</label>
+<!-- TV radio button PG 1 -->
+	     	<input type="radio" name="radio-choice" id="radio-choice-2" value="Movie"/>
+	     	<label for="radio-choice-2" style = "text-align:center"> Movie</label>
+<!-- Movie radio button PG 2 -->
+		</fieldset>
+			<button onclick = "AddToWishlistAPI()"> Search </button>
+			<!-- when Search is clicked, search the database -->
+	<button onclick="AddToWishlist1()"> Add to My WishList</button>
+<!-- when the input is clicked add to my wishlist --> 
+	<div>
+		<a href="#pagetwo" style= "color: #9BCE7D" align="center" style = "background: #F5EACD">View My WishList</a>
+		<br>
+		<br>
+		 	<!-- pressing view my wishlist takes them to page two -->
+		 <a href="#pagethree" style= "color: #9BCE7D" align="center" style= "background: #F5EACD">See Our Bio</a>
+		 	
+		</a>
+	</div>
+	</p>
+	</div>
+	</div>
+<!-- PAGE TWO -->
+<!--  -->
+<!--  -->
+	<div data-role="page" id="pagetwo" style= "background: #F5EACD; text-align:centered;">
+		<div>
+			<br>
+			<h8> My WishList </h8>
+			<br>
+			<br>
+		</div>
+		<div>
+	  		<table align="center" style= "width:100%" id="WishListTable"> 
+	  			<tr>
+	  				<td> </td>
+	  				<td id = "Fixed" style = "color: #9BCE7D; font-size: 30pt; font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;"> Title </td>
+	  				<td id = "Fixed" style = "color: #9BCE7D; font-size: 30pt; font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;"> Type </td>
+	  				<td id = "Fixed" style = "color: #9BCE7D; font-size: 30pt; font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;"> Status </td>
+	  			</tr>
+	  			<tr>
+	  				<td></td>
+	  			</tr>
+	  		</table>
+<center> <p> Title: </p>
+	  	<input type="text" name="WishListSearch" id="API2" class = "APIClass2">
+		<fieldset data-role="tvmshowtype">
+		<legend style = "text-align:center"> Type: </legend>
+     	<input type="radio" name="radio-choice" id="radio-choice-1-1" value="TV Show"/>
+     	<label for="radio-choice-1-1" style = "text-align:center">TV Show</label>
+     	<input type="radio" name="radio-choice" id="radio-choice-2-2" value="Movie"/>
+     	<label for="radio-choice-2-2" style = "text-align:center">Movie</label>
+		</fieldset>
+	  		<button onclick="AddToWishlist2()"> Add to My WishList</button>
+<!-- when addtowishlist button clicked, checks for name, type, and adds to wishlist -->
+<a href="#pageone" style= "color: #9BCE7D" align="center" style= "background: #F5EACD">Return to Home Page</a>
+<br>
+<br>
+<a href="#pagethree" style= "color: #9BCE7D" align="center" style= "background: #F5EACD">See Our Bio</a>
+	  	</div>
+	  </div>
+	</div>
+
+<div data-role="page" id="pagethree" style= "background: #F5EACD; text-align:centered;">
+	<h3> About the Developers </h3>
+	<div> <img src="C:\Users\user\Desktop\final project2\10006181_10152331965463996_3177093884061024474_n.jpg">
+		</div>
+		<div id = "name"> Emma </div>
+
+	<p id = "info"> Emma is a 17 year old rising Senior at Northern Highlands Regional High School in her hometown of Allendale, NJ. She has previous experience in Java,  HTML, CSS, Photoshop, App development, and Game development. She is most excited to take AP Computer Science this coming year, and she hopes to start a Girls Who Code club at her school this year. Her hobbies include golf, fencing, acapella, biology club, tennis, tutoring, volunteering, and coding. Emma wants to get a dual major in college of Computer Science and Biology and her favorite dessert is Key Lime Pie.
+</p>
+<br>
+	<div id = "rotatedpic"> <img src="C:\Users\user\Desktop\final project2\20150825_160603.jpg"width="600px" height="900px"> </div>
+	<div id = "name"> Jessica </div>
+
+	<p id = "info"> Jessica is a rising Senior at Yeshiva University High School for Girls in Queens, NY. She is currently 17 years old and lives on Long Island. She has previous experience in Java, HTML, Photoshop, App development, and JavaScript. Her hobbies include softball, basketball, history bowl, model congress, volunteering, and coding. Jessica is excited to have another awesome year with the Girl Who Code club at her school. She would like to major in Computer Science and go into Software Engineering.Her favorite dessert is Chocolate Souffle.
+</p>
+<a href="#pageone" style= "color: #9BCE7D" align="center" style= "background: #F5EACD">Return to Home Page</a>
+<br>
+<a href="#pagetwo" style= "color: #9BCE7D" align="center" style = "background: #F5EACD">View My WishList</a>
+</div>
+</body>
+</html>
